@@ -29,6 +29,33 @@ export const products: Product[] = [
     description: 'High-performance laptop for work and gaming',
     rating: 4.9,
   },
+  {
+    id: '15',
+    name: 'Gaming Mouse',
+    price: 79.99,
+    image: '/src/assets/gaming-mouse.jpg',
+    category: 'Electronics',
+    description: 'Ergonomic gaming mouse with RGB lighting and precision tracking',
+    rating: 4.6,
+  },
+  {
+    id: '16',
+    name: 'Bluetooth Speaker',
+    price: 89.99,
+    image: '/src/assets/bluetooth-speaker.jpg',
+    category: 'Electronics',
+    description: 'Portable Bluetooth speaker with premium sound quality',
+    rating: 4.5,
+  },
+  {
+    id: '17',
+    name: 'USB-C Hub',
+    price: 45.99,
+    image: '/src/assets/usb-hub.jpg',
+    category: 'Electronics',
+    description: 'Multi-port USB-C hub with HDMI, USB 3.0, and SD card slots',
+    rating: 4.4,
+  },
   
   // Clothing
   {
@@ -58,6 +85,33 @@ export const products: Product[] = [
     description: 'Warm winter jacket with waterproof material',
     rating: 4.7,
   },
+  {
+    id: '18',
+    name: 'Casual Hoodie',
+    price: 49.99,
+    image: '/src/assets/hoodie.jpg',
+    category: 'Clothing',
+    description: 'Comfortable cotton hoodie perfect for casual wear',
+    rating: 4.5,
+  },
+  {
+    id: '19',
+    name: 'Summer Dress',
+    price: 89.99,
+    image: '/src/assets/summer-dress.jpg',
+    category: 'Clothing',
+    description: 'Elegant floral summer dress for special occasions',
+    rating: 4.7,
+  },
+  {
+    id: '20',
+    name: 'Business Shirt',
+    price: 59.99,
+    image: '/src/assets/business-shirt.jpg',
+    category: 'Clothing',
+    description: 'Professional white shirt perfect for office wear',
+    rating: 4.6,
+  },
 
   // Accessories
   {
@@ -77,6 +131,33 @@ export const products: Product[] = [
     category: 'Accessories',
     description: 'Stylish sunglasses with UV protection',
     rating: 4.5,
+  },
+  {
+    id: '21',
+    name: 'Leather Wallet',
+    price: 69.99,
+    image: '/src/assets/leather-wallet.jpg',
+    category: 'Accessories',
+    description: 'Premium leather bifold wallet with RFID protection',
+    rating: 4.7,
+  },
+  {
+    id: '22',
+    name: 'Baseball Cap',
+    price: 24.99,
+    image: '/src/assets/baseball-cap.jpg',
+    category: 'Accessories',
+    description: 'Classic navy baseball cap with adjustable strap',
+    rating: 4.3,
+  },
+  {
+    id: '23',
+    name: 'Travel Backpack',
+    price: 79.99,
+    image: '/src/assets/backpack.jpg',
+    category: 'Accessories',
+    description: 'Spacious travel backpack with multiple compartments',
+    rating: 4.6,
   },
 
   // Shoes
@@ -98,6 +179,24 @@ export const products: Product[] = [
     description: 'Elegant dress shoes for formal occasions',
     rating: 4.6,
   },
+  {
+    id: '24',
+    name: 'White Sneakers',
+    price: 89.99,
+    image: '/src/assets/white-sneakers.jpg',
+    category: 'Shoes',
+    description: 'Clean white sneakers with modern minimalist design',
+    rating: 4.5,
+  },
+  {
+    id: '25',
+    name: 'High Heels',
+    price: 129.99,
+    image: '/src/assets/high-heels.jpg',
+    category: 'Shoes',
+    description: 'Elegant black high heels for special events',
+    rating: 4.4,
+  },
 
   // Books
   {
@@ -118,6 +217,15 @@ export const products: Product[] = [
     description: 'Essential design principles for beginners',
     rating: 4.7,
   },
+  {
+    id: '26',
+    name: 'Cooking Masterclass',
+    price: 34.99,
+    image: '/src/assets/cookbook.jpg',
+    category: 'Books',
+    description: 'Professional cookbook with gourmet recipes and techniques',
+    rating: 4.9,
+  },
 
   // Gadgets
   {
@@ -137,5 +245,32 @@ export const products: Product[] = [
     category: 'Gadgets',
     description: 'Fast wireless charging pad for all devices',
     rating: 4.5,
+  },
+  {
+    id: '27',
+    name: 'Fitness Tracker',
+    price: 99.99,
+    image: '/src/assets/fitness-tracker.jpg',
+    category: 'Gadgets',
+    description: 'Advanced fitness tracker with heart rate monitoring',
+    rating: 4.6,
+  },
+  {
+    id: '28',
+    name: 'Power Bank',
+    price: 39.99,
+    image: '/src/assets/power-bank.jpg',
+    category: 'Gadgets',
+    description: 'High-capacity portable power bank with fast charging',
+    rating: 4.4,
+  },
+  {
+    id: '29',
+    name: 'Phone Stand',
+    price: 19.99,
+    image: '/src/assets/phone-stand.jpg',
+    category: 'Gadgets',
+    description: 'Adjustable aluminum phone stand for desk or bedside',
+    rating: 4.3,
   },
 ];

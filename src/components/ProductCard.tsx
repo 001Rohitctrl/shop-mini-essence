@@ -19,6 +19,21 @@ import programmingBookImg from '@/assets/programming-book.jpg';
 import designBookImg from '@/assets/design-book.jpg';
 import smartwatchImg from '@/assets/smartwatch.jpg';
 import wirelessChargerImg from '@/assets/wireless-charger.jpg';
+import gamingMouseImg from '@/assets/gaming-mouse.jpg';
+import bluetoothSpeakerImg from '@/assets/bluetooth-speaker.jpg';
+import usbHubImg from '@/assets/usb-hub.jpg';
+import hoodieImg from '@/assets/hoodie.jpg';
+import summerDressImg from '@/assets/summer-dress.jpg';
+import businessShirtImg from '@/assets/business-shirt.jpg';
+import leatherWalletImg from '@/assets/leather-wallet.jpg';
+import baseballCapImg from '@/assets/baseball-cap.jpg';
+import backpackImg from '@/assets/backpack.jpg';
+import whiteSneakersImg from '@/assets/white-sneakers.jpg';
+import highHeelsImg from '@/assets/high-heels.jpg';
+import cookbookImg from '@/assets/cookbook.jpg';
+import fitnessTrackerImg from '@/assets/fitness-tracker.jpg';
+import powerBankImg from '@/assets/power-bank.jpg';
+import phoneStandImg from '@/assets/phone-stand.jpg';
 
 const imageMap: Record<string, string> = {
   '/src/assets/headphones.jpg': headphonesImg,
@@ -35,6 +50,21 @@ const imageMap: Record<string, string> = {
   '/src/assets/design-book.jpg': designBookImg,
   '/src/assets/smartwatch.jpg': smartwatchImg,
   '/src/assets/wireless-charger.jpg': wirelessChargerImg,
+  '/src/assets/gaming-mouse.jpg': gamingMouseImg,
+  '/src/assets/bluetooth-speaker.jpg': bluetoothSpeakerImg,
+  '/src/assets/usb-hub.jpg': usbHubImg,
+  '/src/assets/hoodie.jpg': hoodieImg,
+  '/src/assets/summer-dress.jpg': summerDressImg,
+  '/src/assets/business-shirt.jpg': businessShirtImg,
+  '/src/assets/leather-wallet.jpg': leatherWalletImg,
+  '/src/assets/baseball-cap.jpg': baseballCapImg,
+  '/src/assets/backpack.jpg': backpackImg,
+  '/src/assets/white-sneakers.jpg': whiteSneakersImg,
+  '/src/assets/high-heels.jpg': highHeelsImg,
+  '/src/assets/cookbook.jpg': cookbookImg,
+  '/src/assets/fitness-tracker.jpg': fitnessTrackerImg,
+  '/src/assets/power-bank.jpg': powerBankImg,
+  '/src/assets/phone-stand.jpg': phoneStandImg,
 };
 
 interface ProductCardProps {
