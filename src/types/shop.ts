@@ -19,4 +19,4 @@ export interface Customer {
   phone?: string;
 }
 
-export type Category = 'All' | 'Electronics' | 'Clothing' | 'Accessories' | 'Shoes' | 'Books' | 'Gadgets';
+export type Category = 'All' | 'Electronics' | 'Clothing' | 'Accessories' | 'Shoes' | 'Books' | 'Gadgets' | 'Toys' | 'Sports';

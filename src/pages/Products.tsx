@@ -8,7 +8,7 @@ export default function Products() {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState<Category>('All');
 
-  const categories: Category[] = ['All', 'Electronics', 'Clothing', 'Accessories', 'Shoes', 'Books', 'Gadgets'];
+  const categories: Category[] = ['All', 'Electronics', 'Clothing', 'Accessories', 'Shoes', 'Books', 'Gadgets', 'Toys', 'Sports'];
 
   const filteredProducts = useMemo(() => {
     return products.filter((product) => {

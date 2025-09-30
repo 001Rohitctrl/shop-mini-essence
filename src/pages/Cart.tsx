@@ -34,6 +34,17 @@ import cookbookImg from '@/assets/cookbook.jpg';
 import fitnessTrackerImg from '@/assets/fitness-tracker.jpg';
 import powerBankImg from '@/assets/power-bank.jpg';
 import phoneStandImg from '@/assets/phone-stand.jpg';
+import legoSetImg from '@/assets/lego-set.jpg';
+import teddyBearImg from '@/assets/teddy-bear.jpg';
+import rcDroneImg from '@/assets/rc-drone.jpg';
+import jigsawPuzzleImg from '@/assets/jigsaw-puzzle.jpg';
+import boardGameImg from '@/assets/board-game.jpg';
+import basketballImg from '@/assets/basketball.jpg';
+import soccerBallImg from '@/assets/soccer-ball.jpg';
+import tennisRacketImg from '@/assets/tennis-racket.jpg';
+import yogaMatImg from '@/assets/yoga-mat.jpg';
+import dumbbellsImg from '@/assets/dumbbells.jpg';
+import swimmingGogglesImg from '@/assets/swimming-goggles.jpg';
 
 const imageMap: Record<string, string> = {
   '/src/assets/headphones.jpg': headphonesImg,
@@ -65,6 +76,17 @@ const imageMap: Record<string, string> = {
   '/src/assets/fitness-tracker.jpg': fitnessTrackerImg,
   '/src/assets/power-bank.jpg': powerBankImg,
   '/src/assets/phone-stand.jpg': phoneStandImg,
+  '/src/assets/lego-set.jpg': legoSetImg,
+  '/src/assets/teddy-bear.jpg': teddyBearImg,
+  '/src/assets/rc-drone.jpg': rcDroneImg,
+  '/src/assets/jigsaw-puzzle.jpg': jigsawPuzzleImg,
+  '/src/assets/board-game.jpg': boardGameImg,
+  '/src/assets/basketball.jpg': basketballImg,
+  '/src/assets/soccer-ball.jpg': soccerBallImg,
+  '/src/assets/tennis-racket.jpg': tennisRacketImg,
+  '/src/assets/yoga-mat.jpg': yogaMatImg,
+  '/src/assets/dumbbells.jpg': dumbbellsImg,
+  '/src/assets/swimming-goggles.jpg': swimmingGogglesImg,
 };
 
 export default function Cart() {
