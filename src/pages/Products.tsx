@@ -1,14 +1,67 @@
-import { useState, useMemo } from 'react';
-import { Search } from 'lucide-react';
+import { useState, useMemo, useEffect } from 'react';
+import { Search, Mic, MicOff } from 'lucide-react';
 import { ProductCard } from '@/components/ProductCard';
 import { products } from '@/data/products';
 import { Category } from '@/types/shop';
+import { useToast } from '@/hooks/use-toast';
 
 export default function Products() {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState<Category>('All');
+  const [isListening, setIsListening] = useState(false);
+  const { toast } = useToast();
 
   const categories: Category[] = ['All', 'Electronics', 'Clothing', 'Accessories', 'Shoes', 'Books', 'Gadgets', 'Toys', 'Sports'];
+
+  const startVoiceSearch = () => {
+    const SpeechRecognition = (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
+    
+    if (!SpeechRecognition) {
+      toast({
+        title: "Not Supported",
+        description: "Voice search is not supported in your browser. Try Chrome or Edge.",
+        variant: "destructive"
+      });
+      return;
+    }
+
+    const recognition = new SpeechRecognition();
+    recognition.lang = 'en-US';
+    recognition.continuous = false;
+    recognition.interimResults = false;
+
+    recognition.onstart = () => {
+      setIsListening(true);
+      toast({
+        title: "Listening...",
+        description: "Speak now to search for products",
+      });
+    };
+
+    recognition.onresult = (event: any) => {
+      const transcript = event.results[0][0].transcript;
+      setSearchTerm(transcript);
+      toast({
+        title: "Search",
+        description: `Searching for "${transcript}"`,
+      });
+    };
+
+    recognition.onerror = (event: any) => {
+      setIsListening(false);
+      toast({
+        title: "Error",
+        description: "Could not recognize speech. Please try again.",
+        variant: "destructive"
+      });
+    };
+
+    recognition.onend = () => {
+      setIsListening(false);
+    };
+
+    recognition.start();
+  };
 
   const filteredProducts = useMemo(() => {
     return products.filter((product) => {
@@ -38,11 +91,23 @@ export default function Products() {
             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground w-5 h-5" />
             <input
               type="text"
-              placeholder="Search products..."
+              placeholder="Search products... (or use voice)"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="search-input pl-10"
+              className="search-input pl-10 pr-12"
             />
+            <button
+              onClick={startVoiceSearch}
+              disabled={isListening}
+              className="absolute right-2 top-1/2 transform -translate-y-1/2 p-2 hover:bg-accent rounded-md transition-colors disabled:opacity-50"
+              title="Voice search"
+            >
+              {isListening ? (
+                <MicOff className="w-5 h-5 text-destructive animate-pulse" />
+              ) : (
+                <Mic className="w-5 h-5 text-muted-foreground hover:text-primary" />
+              )}
+            </button>
           </div>
 
           {/* Category Filters */}
