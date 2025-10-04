@@ -56,6 +56,25 @@ import readingGlassesImg from '@/assets/reading-glasses.jpg';
 import pillOrganizerImg from '@/assets/pill-organizer.jpg';
 import bloodPressureMonitorImg from '@/assets/blood-pressure-monitor.jpg';
 import orthopedicCushionImg from '@/assets/orthopedic-cushion.jpg';
+import gelPensImg from '@/assets/gel-pens.jpg';
+import notebookImg from '@/assets/notebook.jpg';
+import deskOrganizerImg from '@/assets/desk-organizer.jpg';
+import stickyNotesImg from '@/assets/sticky-notes.jpg';
+import fountainPenImg from '@/assets/fountain-pen.jpg';
+import staplerImg from '@/assets/stapler.jpg';
+import highlightersImg from '@/assets/highlighters.jpg';
+import correctionTapeImg from '@/assets/correction-tape.jpg';
+import dryFruitsMixImg from '@/assets/dry-fruits-mix.jpg';
+import chocolateBoxImg from '@/assets/chocolate-box.jpg';
+import honeyJarImg from '@/assets/honey-jar.jpg';
+import darkChocolateImg from '@/assets/dark-chocolate.jpg';
+import peanutButterImg from '@/assets/peanut-butter.jpg';
+import oliveOilImg from '@/assets/olive-oil.jpg';
+import giftHamperImg from '@/assets/gift-hamper.jpg';
+import scentedCandleImg from '@/assets/scented-candle.jpg';
+import greetingCardsImg from '@/assets/greeting-cards.jpg';
+import photoAlbumImg from '@/assets/photo-album.jpg';
+import jewelryBoxImg from '@/assets/jewelry-box.jpg';
 
 const imageMap: Record<string, string> = {
   '/src/assets/headphones.jpg': headphonesImg,
@@ -109,6 +128,25 @@ const imageMap: Record<string, string> = {
   '/src/assets/pill-organizer.jpg': pillOrganizerImg,
   '/src/assets/blood-pressure-monitor.jpg': bloodPressureMonitorImg,
   '/src/assets/orthopedic-cushion.jpg': orthopedicCushionImg,
+  '/src/assets/gel-pens.jpg': gelPensImg,
+  '/src/assets/notebook.jpg': notebookImg,
+  '/src/assets/desk-organizer.jpg': deskOrganizerImg,
+  '/src/assets/sticky-notes.jpg': stickyNotesImg,
+  '/src/assets/fountain-pen.jpg': fountainPenImg,
+  '/src/assets/stapler.jpg': staplerImg,
+  '/src/assets/highlighters.jpg': highlightersImg,
+  '/src/assets/correction-tape.jpg': correctionTapeImg,
+  '/src/assets/dry-fruits-mix.jpg': dryFruitsMixImg,
+  '/src/assets/chocolate-box.jpg': chocolateBoxImg,
+  '/src/assets/honey-jar.jpg': honeyJarImg,
+  '/src/assets/dark-chocolate.jpg': darkChocolateImg,
+  '/src/assets/peanut-butter.jpg': peanutButterImg,
+  '/src/assets/olive-oil.jpg': oliveOilImg,
+  '/src/assets/gift-hamper.jpg': giftHamperImg,
+  '/src/assets/scented-candle.jpg': scentedCandleImg,
+  '/src/assets/greeting-cards.jpg': greetingCardsImg,
+  '/src/assets/photo-album.jpg': photoAlbumImg,
+  '/src/assets/jewelry-box.jpg': jewelryBoxImg,
 };
 
 export default function Cart() {
