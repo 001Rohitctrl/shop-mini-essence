@@ -45,6 +45,17 @@ import tennisRacketImg from '@/assets/tennis-racket.jpg';
 import yogaMatImg from '@/assets/yoga-mat.jpg';
 import dumbbellsImg from '@/assets/dumbbells.jpg';
 import swimmingGogglesImg from '@/assets/swimming-goggles.jpg';
+import wallClockImg from '@/assets/wall-clock.jpg';
+import tableLampImg from '@/assets/table-lamp.jpg';
+import decorativeVaseImg from '@/assets/decorative-vase.jpg';
+import pictureFrameImg from '@/assets/picture-frame.jpg';
+import throwPillowImg from '@/assets/throw-pillow.jpg';
+import wallArtImg from '@/assets/wall-art.jpg';
+import walkingCaneImg from '@/assets/walking-cane.jpg';
+import readingGlassesImg from '@/assets/reading-glasses.jpg';
+import pillOrganizerImg from '@/assets/pill-organizer.jpg';
+import bloodPressureMonitorImg from '@/assets/blood-pressure-monitor.jpg';
+import orthopedicCushionImg from '@/assets/orthopedic-cushion.jpg';
 
 const imageMap: Record<string, string> = {
   '/src/assets/headphones.jpg': headphonesImg,
@@ -87,6 +98,17 @@ const imageMap: Record<string, string> = {
   '/src/assets/yoga-mat.jpg': yogaMatImg,
   '/src/assets/dumbbells.jpg': dumbbellsImg,
   '/src/assets/swimming-goggles.jpg': swimmingGogglesImg,
+  '/src/assets/wall-clock.jpg': wallClockImg,
+  '/src/assets/table-lamp.jpg': tableLampImg,
+  '/src/assets/decorative-vase.jpg': decorativeVaseImg,
+  '/src/assets/picture-frame.jpg': pictureFrameImg,
+  '/src/assets/throw-pillow.jpg': throwPillowImg,
+  '/src/assets/wall-art.jpg': wallArtImg,
+  '/src/assets/walking-cane.jpg': walkingCaneImg,
+  '/src/assets/reading-glasses.jpg': readingGlassesImg,
+  '/src/assets/pill-organizer.jpg': pillOrganizerImg,
+  '/src/assets/blood-pressure-monitor.jpg': bloodPressureMonitorImg,
+  '/src/assets/orthopedic-cushion.jpg': orthopedicCushionImg,
 };
 
 export default function Cart() {

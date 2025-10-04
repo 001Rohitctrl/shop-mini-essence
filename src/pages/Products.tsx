@@ -11,7 +11,7 @@ export default function Products() {
   const [isListening, setIsListening] = useState(false);
   const { toast } = useToast();
 
-  const categories: Category[] = ['All', 'Electronics', 'Clothing', 'Accessories', 'Shoes', 'Books', 'Gadgets', 'Toys', 'Sports'];
+  const categories: Category[] = ['All', 'Electronics', 'Clothing', 'Accessories', 'Shoes', 'Books', 'Gadgets', 'Toys', 'Sports', 'Home Decor', 'Senior Care'];
 
   const startVoiceSearch = () => {
     const SpeechRecognition = (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
