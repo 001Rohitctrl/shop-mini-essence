@@ -1,12 +1,14 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { ShoppingCart, Search, Menu, X } from 'lucide-react';
+import { ShoppingCart, Search, Menu, X, LogOut, User } from 'lucide-react';
 import { useShop } from '@/context/ShopContext';
+import { useAuth } from '@/context/AuthContext';
 import { Button } from '@/components/ui/button';
 
 export function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { getCartItemsCount } = useShop();
+  const { user, signOut } = useAuth();
   const location = useLocation();
   const cartCount = getCartItemsCount();
 
@@ -56,6 +58,19 @@ export function Navigation() {
                 </span>
               )}
             </Link>
+
+            {/* Auth Button */}
+            {user ? (
+              <Button variant="ghost" size="sm" onClick={signOut}>
+                <LogOut className="h-5 w-5" />
+              </Button>
+            ) : (
+              <Link to="/auth">
+                <Button variant="ghost" size="sm">
+                  <User className="h-5 w-5" />
+                </Button>
+              </Link>
+            )}
 
             {/* Mobile menu button */}
             <Button
