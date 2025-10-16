@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { ShoppingCart, Search, Menu, X, LogOut, User } from 'lucide-react';
+import { ShoppingCart, Search, Menu, X, LogOut, User, Package } from 'lucide-react';
 import { useShop } from '@/context/ShopContext';
 import { useAuth } from '@/context/AuthContext';
 import { Button } from '@/components/ui/button';
@@ -19,6 +19,10 @@ export function Navigation() {
     { name: 'Checkout', path: '/checkout' },
   ];
 
+  const authenticatedLinks = user 
+    ? [{ name: 'Orders', path: '/order-history' }]
+    : [];
+
   const isActive = (path: string) => location.pathname === path;
 
   return (
@@ -35,7 +39,7 @@ export function Navigation() {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            {navLinks.map((link) => (
+            {[...navLinks, ...authenticatedLinks].map((link) => (
               <Link
                 key={link.path}
                 to={link.path}
@@ -88,7 +92,7 @@ export function Navigation() {
         {isMenuOpen && (
           <div className="md:hidden py-4 border-t border-border">
             <div className="flex flex-col space-y-3">
-              {navLinks.map((link) => (
+              {[...navLinks, ...authenticatedLinks].map((link) => (
                 <Link
                   key={link.path}
                   to={link.path}

@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useShop } from '@/context/ShopContext';
+import { useAuth } from '@/context/AuthContext';
+import { supabase } from '@/integrations/supabase/client';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -9,6 +11,7 @@ import { Customer } from '@/types/shop';
 
 export default function Checkout() {
   const { cart, total, clearCart } = useShop();
+  const { user } = useAuth();
   const navigate = useNavigate();
   
   const [customer, setCustomer] = useState<Customer>({
@@ -26,6 +29,16 @@ export default function Checkout() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    if (!user) {
+      toast({
+        title: "Authentication Required",
+        description: "Please login to place an order.",
+        variant: "destructive",
+      });
+      navigate('/auth');
+      return;
+    }
     
     // Basic validation
     if (!customer.name || !customer.email || !customer.address) {
@@ -50,19 +63,81 @@ export default function Checkout() {
 
     setIsSubmitting(true);
     
-    // Simulate order processing
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    
-    // Clear cart and show success message
-    clearCart();
-    
-    toast({
-      title: "Order Successful! 🎉",
-      description: "Thank you for shopping with SHOP MINI. Your order has been placed successfully!",
-    });
-    
-    // Redirect to home page
-    navigate('/');
+    try {
+      const finalTotal = total * 1.08;
+      
+      // Create order in database
+      const { data: orderData, error: orderError } = await supabase
+        .from('orders')
+        .insert({
+          user_id: user.id,
+          customer_name: customer.name,
+          customer_email: customer.email,
+          customer_phone: customer.phone || null,
+          customer_address: customer.address,
+          total_amount: finalTotal,
+          status: 'completed',
+        })
+        .select()
+        .single();
+
+      if (orderError) throw orderError;
+
+      // Create order items
+      const orderItems = cart.map((item) => ({
+        order_id: orderData.id,
+        product_id: item.id,
+        product_name: item.name,
+        product_price: item.price,
+        product_image: item.image,
+        quantity: item.quantity,
+      }));
+
+      const { error: itemsError } = await supabase
+        .from('order_items')
+        .insert(orderItems);
+
+      if (itemsError) throw itemsError;
+
+      // Send order confirmation email
+      const { error: emailError } = await supabase.functions.invoke('send-order-confirmation', {
+        body: {
+          customerName: customer.name,
+          customerEmail: customer.email,
+          orderId: orderData.id,
+          orderItems: cart.map((item) => ({
+            name: item.name,
+            quantity: item.quantity,
+            price: item.price,
+          })),
+          totalAmount: finalTotal,
+        },
+      });
+
+      if (emailError) {
+        console.error('Email error:', emailError);
+      }
+
+      // Clear cart and show success message
+      clearCart();
+      
+      toast({
+        title: "Order Successful! 🎉",
+        description: "Thank you for shopping with SHOP MINI. Check your email for order confirmation!",
+      });
+      
+      // Redirect to order history
+      navigate('/order-history');
+    } catch (error: any) {
+      console.error('Order error:', error);
+      toast({
+        title: "Order Failed",
+        description: error.message || "Something went wrong. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const finalTotal = total * 1.08; // Including tax
