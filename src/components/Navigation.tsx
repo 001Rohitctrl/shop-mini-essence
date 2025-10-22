@@ -1,12 +1,14 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { ShoppingCart, Search, Menu, X, LogOut, User, Package } from 'lucide-react';
+import { ShoppingCart, Search, Menu, X, LogOut, User, Package, Moon, Sun } from 'lucide-react';
+import { useTheme } from 'next-themes';
 import { useShop } from '@/context/ShopContext';
 import { useAuth } from '@/context/AuthContext';
 import { Button } from '@/components/ui/button';
 
 export function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { theme, setTheme } = useTheme();
   const { getCartItemsCount } = useShop();
   const { user, signOut } = useAuth();
   const location = useLocation();
@@ -54,6 +56,18 @@ export function Navigation() {
 
           {/* Cart & Mobile Menu */}
           <div className="flex items-center space-x-4">
+            {/* Theme Toggle */}
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+              className="relative"
+            >
+              <Sun className="h-5 w-5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
+              <Moon className="absolute h-5 w-5 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+              <span className="sr-only">Toggle theme</span>
+            </Button>
+
             <Link to="/cart" className="relative p-2 hover:bg-accent rounded-lg transition-colors">
               <ShoppingCart className="h-5 w-5" />
               {cartCount > 0 && (
