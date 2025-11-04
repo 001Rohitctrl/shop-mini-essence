@@ -2,7 +2,7 @@ import { Star, ShoppingCart } from 'lucide-react';
 import { Product } from '@/types/shop';
 import { useShop } from '@/context/ShopContext';
 import { Button } from '@/components/ui/button';
-import { toast } from '@/hooks/use-toast';
+import { toast } from 'sonner';
 
 // Import all product images
 import headphonesImg from '@/assets/headphones.jpg';
@@ -158,8 +158,7 @@ export function ProductCard({ product }: ProductCardProps) {
 
   const handleAddToCart = () => {
     addToCart(product);
-    toast({
-      title: "Added to cart!",
+    toast.success("Added to cart!", {
       description: `${product.name} has been added to your cart.`,
     });
   };

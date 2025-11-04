@@ -2,7 +2,7 @@ import { createContext, useContext, useEffect, useState, ReactNode } from 'react
 import { User, Session } from '@supabase/supabase-js';
 import { supabase } from '@/integrations/supabase/client';
 import { useNavigate } from 'react-router-dom';
-import { toast } from '@/hooks/use-toast';
+import { toast } from 'sonner';
 
 interface AuthContextType {
   user: User | null;
@@ -49,14 +49,11 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     });
 
     if (error) {
-      toast({
-        variant: "destructive",
-        title: "Sign up failed",
+      toast.error("Sign up failed", {
         description: error.message,
       });
     } else {
-      toast({
-        title: "Success!",
+      toast.success("Success!", {
         description: "Account created successfully. You're now logged in.",
       });
       navigate('/');
@@ -72,14 +69,11 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     });
 
     if (error) {
-      toast({
-        variant: "destructive",
-        title: "Sign in failed",
+      toast.error("Sign in failed", {
         description: error.message,
       });
     } else {
-      toast({
-        title: "Welcome back!",
+      toast.success("Welcome back!", {
         description: "You've successfully signed in.",
       });
       navigate('/');
@@ -90,8 +84,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
   const signOut = async () => {
     await supabase.auth.signOut();
-    toast({
-      title: "Signed out",
+    toast.info("Signed out", {
       description: "You've been successfully signed out.",
     });
     navigate('/auth');

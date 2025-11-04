@@ -6,7 +6,7 @@ import { supabase } from '@/integrations/supabase/client';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { toast } from '@/hooks/use-toast';
+import { toast } from 'sonner';
 import { Customer } from '@/types/shop';
 
 export default function Checkout() {
@@ -31,10 +31,8 @@ export default function Checkout() {
     e.preventDefault();
     
     if (!user) {
-      toast({
-        title: "Authentication Required",
+      toast.error("Authentication Required", {
         description: "Please login to place an order.",
-        variant: "destructive",
       });
       navigate('/auth');
       return;
@@ -42,10 +40,8 @@ export default function Checkout() {
     
     // Basic validation
     if (!customer.name || !customer.email || !customer.address) {
-      toast({
-        title: "Missing Information",
+      toast.warning("Missing Information", {
         description: "Please fill in all required fields.",
-        variant: "destructive",
       });
       return;
     }
@@ -53,10 +49,8 @@ export default function Checkout() {
     // Email validation
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(customer.email)) {
-      toast({
-        title: "Invalid Email",
+      toast.error("Invalid Email", {
         description: "Please enter a valid email address.",
-        variant: "destructive",
       });
       return;
     }
@@ -121,19 +115,17 @@ export default function Checkout() {
       // Clear cart and show success message
       clearCart();
       
-      toast({
-        title: "Order Successful! 🎉",
+      toast.success("Order Successful! 🎉", {
         description: "Thank you for shopping with SHOP MINI. Check your email for order confirmation!",
+        duration: 5000,
       });
       
       // Redirect to order history
       navigate('/order-history');
     } catch (error: any) {
       console.error('Order error:', error);
-      toast({
-        title: "Order Failed",
+      toast.error("Order Failed", {
         description: error.message || "Something went wrong. Please try again.",
-        variant: "destructive",
       });
     } finally {
       setIsSubmitting(false);
